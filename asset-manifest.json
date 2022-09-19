@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Coin-Maker-App/static/css/main.0b264819.css",
+    "main.js": "/Coin-Maker-App/static/js/main.4e05a4f9.js",
+    "static/js/787.e246d7c1.chunk.js": "/Coin-Maker-App/static/js/787.e246d7c1.chunk.js",
+    "index.html": "/Coin-Maker-App/index.html",
+    "main.0b264819.css.map": "/Coin-Maker-App/static/css/main.0b264819.css.map",
+    "main.4e05a4f9.js.map": "/Coin-Maker-App/static/js/main.4e05a4f9.js.map",
+    "787.e246d7c1.chunk.js.map": "/Coin-Maker-App/static/js/787.e246d7c1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b264819.css",
+    "static/js/main.4e05a4f9.js"
+  ]
+}
