@@ -1,4 +1,7 @@
 # Welcome to Coin Maker App
+The App is deployed to GitHub Pages and can be accessed here - 
+
+[Coin Maker App](https://jayeshtiwari03.github.io/Coin-Maker-App/)
 
 ## Available Scripts
 
