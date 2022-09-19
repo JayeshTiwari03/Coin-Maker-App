@@ -1,0 +1,8 @@
+.card-container {
+  padding: 10px 0 0 10px;
+  gap: 20px;
+}
+
+.clickable-card {
+  cursor: pointer;
+}

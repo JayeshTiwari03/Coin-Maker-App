@@ -1,0 +1,29 @@
+.divider {
+  margin: 20px 0;
+}
+
+.vertical-divider {
+  width: 4px;
+}
+
+.styled-prices * {
+  font-size: 10px;
+}
+
+.styled-prices p {
+  margin: 5px 5px;
+}
+
+.styled-prices div {
+  margin-top: 10px;
+  width: 70px;
+}
+
+.dialog-container {
+  padding: 30px;
+}
+
+.card-container img {
+  width: 150px;
+  margin: auto;
+}
