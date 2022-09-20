@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Pagination } from "@mui/material";
 import Cards from "../shared/Cards";
 import InfoDialog from "../shared/InfoDialog";
 import "./styles.css";
+import usePagination from "../utils/usePagination";
 
 const ViewCoins = () => {
   const [data, setData] = useState([]);
@@ -11,6 +12,16 @@ const ViewCoins = () => {
   const [open, setOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const PER_PAGE = 10;
+
+  const count = Math.ceil(data.length / PER_PAGE);
+  const _DATA = usePagination(data, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+  };
 
   const handleClose = (value) => {
     setOpen(false);
@@ -55,44 +66,64 @@ const ViewCoins = () => {
     return <div data-testid="container">Loading...</div>;
   } else {
     return (
-      <Grid
-        container
-        item
-        xs={12}
-        direction="row"
-        justifyContent="center"
-        className="card-container"
-      >
-        {data &&
-          data.map(
-            ({ id, image, name, symbol, current_price, high_24h, low_24h }) => (
-              <div
-                key={id}
-                onClick={() => fetchCoinData(id)}
-                className="clickable-card"
-              >
-                <Cards
-                  image={image}
-                  name={name}
-                  symbol={symbol}
-                  currentPrice={current_price}
-                  highPrice={high_24h}
-                  lowPrice={low_24h}
-                />
-              </div>
-            )
+      <>
+        <Grid
+          container
+          item
+          xs={12}
+          direction="row"
+          justifyContent="center"
+          className="card-container"
+        >
+          {data &&
+            data.map(
+              ({
+                id,
+                image,
+                name,
+                symbol,
+                current_price,
+                high_24h,
+                low_24h,
+              }) => (
+                <div
+                  key={id}
+                  onClick={() => fetchCoinData(id)}
+                  className="clickable-card"
+                >
+                  <Cards
+                    image={image}
+                    name={name}
+                    symbol={symbol}
+                    currentPrice={current_price}
+                    highPrice={high_24h}
+                    lowPrice={low_24h}
+                  />
+                </div>
+              )
+            )}
+
+          {coinData.length !== 0 && (
+            <InfoDialog
+              open={open}
+              onClose={handleClose}
+              handleClick={fetchCoinData}
+              coinData={coinData}
+              loading={loading}
+              error={error}
+            />
           )}
-        {coinData.length !== 0 && (
-          <InfoDialog
-            open={open}
-            onClose={handleClose}
-            handleClick={fetchCoinData}
-            coinData={coinData}
-            loading={loading}
-            error={error}
-          />
-        )}
-      </Grid>
+        </Grid>
+        <Pagination
+          count={count}
+          size="large"
+          page={page}
+          variant="outlined"
+          shape="rounded"
+          onChange={handleChange}
+          className="pagination"
+        />
+      </>
     );
   }
 };

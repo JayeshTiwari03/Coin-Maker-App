@@ -6,3 +6,11 @@
 .clickable-card {
   cursor: pointer;
 }
+
+.pagination {
+  margin: 50px auto;
+}
+
+.pagination :first-child {
+  justify-content: center;
+}
