@@ -10,7 +10,7 @@ import "./styles.css";
 
 const Cards = ({ image, name, symbol, currentPrice, highPrice, lowPrice }) => {
   return (
-    <Grid>
+    <Grid data-testid="main-container">
       <Card sx={{ minWidth: 200 }} className="card-container">
         <CardMedia
           component="img"
@@ -31,21 +31,21 @@ const Cards = ({ image, name, symbol, currentPrice, highPrice, lowPrice }) => {
             className="styled-prices"
             justifyContent="center"
           >
-            <p>
+            <div>
               Current
               <br></br>
               <Chip label={currentPrice} />
-            </p>
-            <p>
+            </div>
+            <div>
               High 24 hour
               <br></br>
               <Chip label={highPrice} variant="outlined" />
-            </p>
-            <p>
+            </div>
+            <div>
               Low 24 hour
               <br></br>
               <Chip label={lowPrice} variant="outlined" />
-            </p>
+            </div>
           </Grid>
         </CardContent>
       </Card>
@@ -54,12 +54,12 @@ const Cards = ({ image, name, symbol, currentPrice, highPrice, lowPrice }) => {
 };
 
 Cards.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  symbol: PropTypes.string.isRequired,
-  currentPrice: PropTypes.number.isRequired,
-  highPrice: PropTypes.number.isRequired,
-  lowPrice: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  symbol: PropTypes.string,
+  currentPrice: PropTypes.number,
+  highPrice: PropTypes.number,
+  lowPrice: PropTypes.number,
 };
 
 export default Cards;

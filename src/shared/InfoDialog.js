@@ -32,7 +32,7 @@ const InfoDialog = ({
   if (error) {
     return <div>Some error occured</div>;
   } else if (!loading) {
-    return <div>Loading...</div>;
+    return <div data-testid="main-container">Loading...</div>;
   } else {
     return (
       <Dialog onClose={handleClose} open={open} fullWidth maxWidth={600}>
@@ -71,10 +71,10 @@ const InfoDialog = ({
 };
 
 InfoDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
-  coinData: PropTypes.object.isRequired,
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
+  selectedValue: PropTypes.string,
+  coinData: PropTypes.object,
 };
 
 export default InfoDialog;

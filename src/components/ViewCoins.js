@@ -52,7 +52,7 @@ const ViewCoins = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div data-testid="container">Loading...</div>;
   } else {
     return (
       <Grid
